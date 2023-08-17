@@ -1,0 +1,14 @@
+shared:
+  image: node:18
+
+jobs:
+  job_using_template_apple_main:
+    requires: [~pr, ~commit]
+    template: sagar1312/sd-job-template-apple@latest
+  job_using_template_apple_test:
+    requires: [ job_using_template_apple_main ]
+    template: sagar1312/sd-job-template-apple@latest
+  job_not_using_template:
+    requires: [ job_using_template_apple_main ]
+    steps:
+      - hello: echo "hello"

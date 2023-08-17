@@ -1,0 +1,12 @@
+namespace: sagar1312
+name: sd-job-template-pear
+version: '1.0.0'
+description: Pear temlpate
+maintainer: sagar1312@gmail.com
+config:
+  image: node:18
+  parameters:
+    fruit: [ "pear" ]
+  steps:
+    - step_print_template_parameters: |
+        echo fruit = $(meta get parameters.fruit)

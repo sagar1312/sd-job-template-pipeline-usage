@@ -1,0 +1,14 @@
+shared:
+  image: node:18
+
+jobs:
+  job_using_template_pear_main:
+    requires: [~pr, ~commit]
+    template: sagar1312/sd-job-template-pear@latest
+  job_using_template_pear_test:
+    requires: [ job_using_template_pear_main ]
+    template: sagar1312/sd-job-template-pear@latest
+  job_not_using_template:
+    requires: [ job_using_template_pear_main ]
+    steps:
+      - hello: echo "hello"
